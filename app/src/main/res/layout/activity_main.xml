@@ -1,49 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Disposition verticale : EditText + Boutons en haut, ListView en dessous -->
+<!--
+    activity_main.xml
+    Layout de MainActivity : titre + ListView des contacts
+-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:orientation="vertical">
 
-    <!-- Ligne du haut : zone de saisie + boutons -->
-    <LinearLayout
+    <!-- Barre de titre de l'appli (simple TextView) -->
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:background="?attr/colorPrimary"
+        android:padding="16dp"
+        android:text="@string/app_name"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/etContact"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="@string/hint_contact"
-            android:inputType="textPersonName"
-            android:imeOptions="actionDone" />
-
-        <Button
-            android:id="@+id/btnAjouter"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:text="@string/btn_ajouter" />
-
-        <Button
-            android:id="@+id/btnModifier"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:text="@string/btn_modifier" />
-
-    </LinearLayout>
-
-    <!-- La liste des contacts -->
+    <!-- Liste des contacts occupe tout l'espace restant -->
     <ListView
         android:id="@+id/lvContacts"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginTop="8dp"
-        android:choiceMode="singleChoice" />
+        android:divider="@android:color/darker_gray"
+        android:dividerHeight="0.5dp" />
 
 </LinearLayout>

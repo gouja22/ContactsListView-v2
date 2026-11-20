@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    item_contact.xml
+    Mise en page d'une ligne dans la ListView des contacts.
+    Affiche : photo (ronde), nom + prénom, numéro de téléphone.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="72dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="8dp">
+
+    <!-- Photo de profil (carrée avec coins arrondis gérés en code ou ShapeableImageView) -->
+    <ImageView
+        android:id="@+id/imgPhoto"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="12dp"
+        android:contentDescription="@string/desc_photo_contact"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_person_placeholder" />
+
+    <!-- Colonne texte : nom+prénom et téléphone -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvNomPrenom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/tvTelephone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textSize="13sp"
+            android:textColor="@android:color/darker_gray" />
+
+    </LinearLayout>
+
+    <!-- Flèche indicatrice (chevron) -->
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:src="@drawable/ic_chevron_right"
+        android:contentDescription="@null"
+        android:tint="@android:color/darker_gray" />
+
+</LinearLayout>

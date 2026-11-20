@@ -1,11 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <!-- Permission pour prendre des photos avec la caméra -->
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <!-- Permission pour lire les images de la galerie (Android ≤ 12) -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+
+    <!-- Permission pour lire les images (Android 13+) -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+
+    <!-- Permission pour écrire dans MediaStore (photos caméra, Android ≤ 9) -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="28" />
+
+    <!-- Feature caméra (optionnelle : l'app fonctionne sans caméra) -->
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
     <application
         android:allowBackup="true"
         android:label="@string/app_name"
         android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
 
+        <!-- MainActivity : point d'entrée -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -14,5 +34,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- DetailActivity : écran de détail/édition -->
+        <activity
+            android:name=".DetailActivity"
+            android:exported="false"
+            android:parentActivityName=".MainActivity" />
+
     </application>
+
 </manifest>
